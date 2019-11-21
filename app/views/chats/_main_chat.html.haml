@@ -2,12 +2,13 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group test
+        %h2.main-header__left-box__current-group a
         %ul.main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member hoge
+          %li.main-header__left-box__member-list__member
       = link_to "#" do
-        .main-header__edit-btn Edit
+        = link_to edit_group_path(@group) do
+          .main-header__edit-btn Edit
 
     .messages
       = render @chats
@@ -20,5 +21,3 @@
             = icon('fas', 'image', class: 'icon')
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-
-
