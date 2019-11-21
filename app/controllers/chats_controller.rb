@@ -24,5 +24,6 @@ class ChatsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+    @users = @group.users
   end
 end
