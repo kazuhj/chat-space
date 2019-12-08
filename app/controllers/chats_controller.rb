@@ -7,15 +7,11 @@ class ChatsController < ApplicationController
 
   def create
     @chat = @group.chats.new(chat_params)
-    if @chat.save
+    @chats = @group.chats.includes(:user)
+    @chat.save
       respond_to do |format|
         format.json
       end
-    else
-      @chats = @group.chats.includes(:user)
-      flash.now[:alert] = "メッセージを入力してください"
-      render :index
-    end
   end
 
   private
