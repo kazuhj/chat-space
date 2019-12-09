@@ -10,6 +10,7 @@ class ChatsController < ApplicationController
     @chats = @group.chats.includes(:user)
     @chat.save
       respond_to do |format|
+        format.html { redirect_to group_chats_path, notice: "メッセージを送信しました" }
         format.json
       end
   end
