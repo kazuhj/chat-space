@@ -1,7 +1,4 @@
 $(function(){
-
-
-
   function buildHTML(chat){
 
     var contents = `<div class="message">
