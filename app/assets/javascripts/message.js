@@ -22,7 +22,9 @@ $(function(){
 
     } else {
       var html = `${contents}
-                  <img src="${chat.image.url}">`;
+                  <div class="lower-message">
+                    <img class="lower-message__image" src= ${chat.image.url}>
+                  </div>`;
     }
     return html;
   }
