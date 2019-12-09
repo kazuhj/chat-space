@@ -18,15 +18,11 @@ $(function(){
                     </div>`;
 
     if (chat.image.url == null) {
-      var html = `<div class="message">
-                    ${contents}
-                  </div>`;
+      var html = `${contents}`;
 
     } else {
-      var html = `<div class="message">
-                    ${contents}
-                    <img src="${chat.image.url}">
-                  </div>`;
+      var html = `${contents}
+                  <img src="${chat.image.url}">`;
     }
     return html;
   }
