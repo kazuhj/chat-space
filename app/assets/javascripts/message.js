@@ -3,7 +3,6 @@ $(function(){
 
 
   function buildHTML(chat){
-    console.log(chat.image.url)
 
     var contents = `<div class="message">
                       <div class="upper-message">
@@ -39,7 +38,6 @@ $(function(){
     e.preventDefault()
     var formData = new FormData(this);
     var url =$(this).attr('action');
-    console.log(url)
     $.ajax({
       url: url,
       type: "POST",
@@ -49,7 +47,6 @@ $(function(){
       contentType: false
     })
     .done(function(chat){
-      console.log(chat)
       var html = buildHTML(chat);
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
