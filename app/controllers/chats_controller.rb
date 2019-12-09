@@ -7,13 +7,12 @@ class ChatsController < ApplicationController
 
   def create
     @chat = @group.chats.new(chat_params)
-    if @chat.save
-      redirect_to group_chats_path(@group), notice: 'メッセージが送信されました'
-    else
-      @chats = @group.chats.includes(:user)
-      flash.now[:alert] = 'メッセージを入力してください。'
-      render :index
-    end
+    @chats = @group.chats.includes(:user)
+    @chat.save
+      respond_to do |format|
+        format.html { redirect_to group_chats_path, notice: "メッセージを送信しました" }
+        format.json
+      end
   end
 
   private
