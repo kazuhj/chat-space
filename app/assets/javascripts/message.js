@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(chat){
-    console.log(chat)
 
     var image = `<div class="lower-message">
                    <img class="lower-message__image" src= ${chat.image}>
@@ -70,7 +69,6 @@ $(function(){
   var reloadChats = function () {
     if (window.location.href.match(/\/groups\/\d+\/chats/)){
       var last_message_id = $('.message:last').data("message-id");
-      console.log(last_message_id);
 
       $.ajax({
         url: "api/chats",
@@ -79,11 +77,9 @@ $(function(){
         data: {last_id: last_message_id}
       })
       .done(function (chats) {
-        console.log(chats)
         var insertHTML = '';
         chats.forEach(function (chat) {
           insertHTML = buildHTML(chat);
-          console.log(chat);
           $('.messages').append(insertHTML);
         })
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
